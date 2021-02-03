@@ -27,6 +27,10 @@ def create_app(debug=False):
     app.register_error_handler(404, handle_404_errors)
     app.register_error_handler(500, handle_500_errors)
 
+    # register blueprint
+    from .api import api as api_blueprint
+    app.register_blueprint(api_blueprint)
+
     return app
 
 
